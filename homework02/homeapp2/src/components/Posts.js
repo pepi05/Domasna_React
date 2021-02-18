@@ -16,8 +16,8 @@ const Posts = (props) => {
                                         <p>Comment id: {comment.id}</p>
                                         <p>Comment name: {comment.name}</p>
                                         <p>Post id: {comment.postId}</p>
-                                        <p>{comment.userId}</p>
-                                        <p>{comment.title}</p>
+                                        
+                                        
                                         
                                     </div>
                                 )
