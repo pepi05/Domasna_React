@@ -7,6 +7,11 @@
     />
   
     3. For the given photo, implement function that will handle how many times the image has been clicked. Show the result. 
+
+    4.  Change the label on the toggle button to:
+      * Show data - if showData is false
+      * Hide data - if showData if true
+     The task should be implemented with useState and useEffect hooks.
   */
  import { useState, useEffect } from 'react';
 
@@ -81,7 +86,13 @@ const onImgClick = () => {
     Gender:     <input type='text' name='gender' placeholder='gender' value={gender} onChange={onInputGender}></input> <br />
    
     {/* <button onClick={toggle}>show/hide</button> */}
-    <button onClick={toggleData}>Click me</button>
+    
+    {showData ? 
+    <button onClick={toggleData}>Hide data</button>
+    :
+    <button onClick={toggleData}>Show data</button>
+    }
+    
 
     {showData &&
 
