@@ -9,15 +9,14 @@ import { useState, useEffect } from 'react';
      The task should be implemented with useState and useEffect hooks.
 */
 const App = () => {
-  let [counter, setCounter] = useState(1);
-  const[disabled, setDisabled] = useState(false)
-  
- 
+  let [counter, setCounter] = useState(0);
+  const [showIncrementButton, setIncrementButton] = useState(true)
+
   useEffect(() => {
    if (counter === 10) {
-     console.log('hide inc button')
+    setIncrementButton(false)
    } else if (counter === 0) {
-     console.log('hide dec button')
+    setIncrementButton(true)
    }
   }, [counter])
 
@@ -31,41 +30,22 @@ const App = () => {
       return state - 1;
     });
   }
-
-  const btnDisable = () => {
-    setDisabled(state => {
-      return !state;
-    })
-  }
-  
-
-      if (counter===10) {
+ 
         return (
           <div id='app'>
-         <button type='button' disabled ={disabled} onClick={btnDisable}>+</button>
-      <p> {counter} </p>
-      <button onClick={onDecrement}>-</button>
-      </div>
-        ) 
-      } else if (counter===0) {
-        return (
-          <div id='app'>
+          <p> Counter: {counter} </p>
+          {showIncrementButton
+          ?
           <button onClick={onIncrement}>+</button>
-       <p> {counter} </p>
-       <button type='button' disabled ={disabled} onClick={btnDisable}>-</button>
-       </div>
-        )  
-      } else {
-        return (
-          <div id='app'>
-        <button onClick={onIncrement}>+</button>
-          <p> {counter} </p>
+          :
           <button onClick={onDecrement}>-</button>
-          </div>)
+          }
+
+          </div>
+          )
         
-      
       }
 
-}
+
 
 export default App;
