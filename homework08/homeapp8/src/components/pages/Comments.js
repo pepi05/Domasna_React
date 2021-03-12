@@ -6,13 +6,14 @@ const Comments = () => {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/comments')
+        fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
         .then(response => response.json())
         .then(data => {
             setComments(data);
             setIsDataFetched(true);
         })
         .catch(error => {
+            setIsDataFetched(true);
             setError('Error fetching data');
         })
     })
@@ -29,7 +30,7 @@ const Comments = () => {
                 {comments.map(comment => {
                     return (
                         <div>
-                        {comment.postId === 1 && <p>{comment.body}</p>}
+                        <p>{comment.body}</p>
                         </div> 
                     )
                 })}

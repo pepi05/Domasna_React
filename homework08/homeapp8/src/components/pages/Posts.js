@@ -7,7 +7,7 @@ const Posts = () => {
     const [error, setError] = useState('');
     
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
+        fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
         .then(response => response.json())
         .then(data => {
             setPosts(data);
@@ -30,12 +30,7 @@ const Posts = () => {
                 <h2>Posts from userId 1:</h2>
                 {posts.map(post => {
                   return (
-                     <>
-                        {post.userId === 1 &&
-                    
-                     <p>{post.body}</p>
-                     }
-                    </> 
+                     <p>{post.body}</p> 
                  )
              })}
              </>
